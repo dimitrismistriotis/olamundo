@@ -1,7 +1,8 @@
 CACHE MANIFEST
-/js/jquery.js
-/js/bootstrap.min.js
-/css/amelia.bootstrap.min.css
+# v1 2012-10-15
+js/jquery.js
+js/bootstrap.min.js
+css/amelia.bootstrap.min.css
 https://fonts.googleapis.com/css?family=Lobster
 https://fonts.googleapis.com/css?family=Cabin:400,700
 /index.html

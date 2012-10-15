@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html manifest="hellow.manifest">
+<html manifest="/manifest/hellow.manifest">
   <head>
     <title>Hello-world / Olá Mundo</title>
     <!-- Bootstrap -->
@@ -40,7 +40,7 @@
     </div>
     <div class="row">
         <div class="span10 offset1">
-            <button id="installButton" class="btn btn-primary" onclick="navigator.mozApps.install('/json/manifest.json'); return false;">
+            <button id="installButton" class="btn btn-primary" onclick="navigator.mozApps.install(document.URL + 'json/manifest.json'); return false;">
                 Install this application.
             </button><br />
             <p> Application is <span id="installedStatus">maybe</span> installed</p>
