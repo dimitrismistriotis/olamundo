@@ -1,40 +1,53 @@
-<html>
-<head>
-  <title>heroku-static-site -- basic HTML+CSS+JS website on Heroku</title>
-  <link rel="stylesheet" href="css/screen.css" type="text/css" media="screen" charset="utf-8" />
-  <script src="js/application.js" type="text/javascript" charset="utf-8"></script>
-
-</head>
-<body>
-
-<div id="container">
-  <div id="header">
-    <h1><a href="/">heroku-static-site</a></h1>
-
-    <div id="navigation">
-      <ul>
-        <li><a href=""></a></li>
-        <li><a href=""></a></li>
-        <li><a href=""></a></li>
-      </ul>
+<!DOCTYPE html>
+<html manifest="hellow.manifest">
+  <head>
+    <title>Application Template</title>
+    <!-- Bootstrap -->
+    <link href="css/amelia.bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <h1>Hello-world mini app.</h1>
+    <script>
+    /* Check if application is already installed: https://developer.mozilla.org/en-US/docs/Apps/Getting_Started */
+    var request = navigator.mozApps.getSelf();
+    request.onsuccess = function() {
+      if (request.result) {
+        console.log("Application is installed");
+        $("#installButton").attr('disabled', true);
+        $("#installedStatus").html("already");
+      } else {
+        console.log("Application is _not_ installed");
+        $("#installButton").attr('disabled', false);
+        $("#installedStatus").html("not");
+      }
+    }
+    request.onerror = function() {
+        var errorMessage = 'Error checking installation status: ' + this.error.message;
+        console.log(errorMessage);
+        $("#alertDiv span").html(errorMessage);
+        $("#alertDiv").show();
+    }
+    var myJSONText = JSON.stringify(myObject, replacer);
+    </script>
+    <div class="row">
+        <div class="span10 offset1">
+            <p>Simple app that demonstrates installation and other firefoxOS concepts.</p>
+        </div>
     </div>
-  </div>
-
-
-  <div id="main">
-
-    <div id="description">
-      <h2>What's the idea?</h2>
-      <p>Yep</p>
+    <div class="row">
+        <div class="span10 offset1">
+            <button id="installButton" class="btn btn-primary" onclick="navigator.mozApps.install('http://local.localhost:8000/manifest.json'); return false;">
+                Install this application.
+            </button><br />
+            <p> Application is <span id="installedStatus">maybe</span> installed</p>
+                <div class="alert" id="alertDiv" style="display: none">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <strong>Warning!</strong> <span>error message</span>
+                </div>
+        </div>
     </div>
-  </div>
-
-  <div id="footer">
-    &copy; 2012 No Rights Reserved.
-
-  </div>
-</div>
-
-
-</body>
+  </body>
 </html>

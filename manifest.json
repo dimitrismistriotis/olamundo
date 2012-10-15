@@ -1,0 +1,13 @@
+{
+  "name": "Demo App",
+  "description": "Just a hello world, template for later development",
+  "launch_path": "/",
+  "icons": {
+    "128": "/img/icon-128.png"
+  },
+  "developer": {
+    "name": "We boot you",
+    "url": "http://www.mistriotis.gr"
+  },
+  "default_locale": "en"
+}
